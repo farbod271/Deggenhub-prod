@@ -1,0 +1,88 @@
+{% extends 'Deggenhub/base.html' %}
+
+
+<head>
+    
+    {% block title %}
+    Modify your Task
+    {% endblock %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <title>Your Profile</title>
+    {% load allauth i18n %}
+</head>
+
+{% block content %}
+<div class="nav-margin-top">
+
+<div class="box">
+    <form class="changeable" method="post" action="{%url 'update-task' pk=pk %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="{{ form.task_eco.id_for_label }}">Are you offering or asking for this</label>
+
+            <div id="tebuttonOptions" class="bo">
+                <button  type="button" class="teoptionButton ob one" value="1">offer</button>
+                <button  type="button" class="teoptionButton ob two" value="2">demand</button>
+                <input type="hidden" name="task_eco" id="id_task_eco" value="{{task.task_eco}}">
+            </div>
+
+
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.title.id_for_label }}">What do you want/sell</label>
+            <input class="input-box" type="text" value="{{task.title}}" name="title" maxlength="50" required="" id="id_title">
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.task_type.id_for_label }}">is it a services or a product?</label>
+
+            <div id="ittbuttonOptions" class="bo">
+                <button type="button" class="ittoptionButton ob" value="1">Product</button>
+                <button type="button" class="ittoptionButton ob" value="2">Service</button>
+                <input type="hidden" name="task_type" id="id_task_type" value="{{task.task_type}}">
+            </div>
+        
+        </div>
+        <div class="form-group">
+            <label for="{{ form.description.id_for_label }}">Description:</label>
+            <textarea class="input-box" name="description" cols="40" rows="10" maxlength="500" required="" id="id_description">{{task.description}}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="{{ form.price.id_for_label }}">Price:</label>
+            <input value="{{task.price}}" class="input-box" type="number" name="price" step="0.01" id="id_price">
+        </div>
+
+        <div class="form-group">
+            <label for="id_contact_info">Provide contact information for buyers/sellers</label>
+            <input value="{{task.contact_info}}" type="text" name="contact_info" value="email" class="input-box" maxlength="100" id="id_contact_info">        
+        </div>
+        <div class="form-group">
+            <label for="{{ form.image.id_for_label }}">Image:</label>
+            <img class="profile-picture" src="{{task.image.url}}" alt="">
+            <input type="file" name="image" accept="image/*" id="id_image">
+        </div>
+        <button type="submit" class="btn">Update</button>
+
+    </form>
+</div>
+</div>
+
+
+
+{% load static %}
+<script src="{% static 'templates/Deggenhub/app.js' %}"></script>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+

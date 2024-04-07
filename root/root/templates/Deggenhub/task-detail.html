@@ -1,0 +1,62 @@
+
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+
+
+
+<body class="signup-body">
+
+
+<div class="custom-container">
+    
+    <div class="card-body event-detail">
+        {% if task.image %}
+        <img class="task-image-detail" src="{{task.image.url}}" alt="task image">
+        {% endif %}
+        {% if task.task_eco == 1 %}
+            <p class="before-task-title">I want to Sell</p>
+        {% elif task.task_eco == 2 %}
+            <p class="before-task-title">I want to buy</p>
+
+            {% endif %}
+        <h1 class="task-title">{{task.title}}</h1>
+
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 480">
+            <path fill="#ffd700" fill-opacity="1" d="M0,256L80,240C160,224,320,192,480,154.7C640,117,800,75,960,58.7C1120,43,1280,53,1360,58.7L1440,64L1440,960L1360,960C1280,960,1120,960,960,960C800,960,640,960,480,960C320,960,160,960,80,960L0,960Z"></path>
+        </svg>
+
+        <div class="yellow-back">
+
+        </div>
+
+        <div class="custom-container2">
+            
+            <div class="details">
+                <p>{{task.task_type}}</p>
+                <P>{{task.price}}€</P>
+                <p>{{task.created}}</p>
+                <p>{{task.owner}}</p>
+                <p>{{task.contact_info}}</p>
+            </div>
+        </div> 
+        <p class="description">{{task.description}}</p>
+        
+
+        
+        <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 960">
+            <path fill="#ffd700" fill-opacity="1" d="M0,256L80,240C160,224,320,192,480,154.7C640,117,800,75,960,58.7C1120,43,1280,53,1360,58.7L1440,64L1440,960L1360,960C1280,960,1120,960,960,960C800,960,640,960,480,960C320,960,160,960,80,960L0,960Z"></path>
+        </svg>  -->
+        <!-- <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4320 2880">
+            <path fill="#ffd700" fill-opacity="1" d="M0,768L240,720C480,672,960,576,1440,464.1C1920,352,2400,224,2880,176.1C3360,128,3840,160,4080,176.1L4320,192L4320,2880L4080,2880C3840,2880,3360,2880,2880,2880C2400,2880,1920,2880,1440,2880C960,2880,480,2880,240,2880L0,2880Z"></path>
+        </svg> -->
+        <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4320 4320">
+            <path fill="#ffd700" fill-opacity="1" d="M0,768L240,720C480,672,960,576,1440,464.1C1920,352,2400,224,2880,176.1C3360,128,3840,160,4080,176.1L4320,192L4320,4320L4080,4320C3840,4320,3360,4320,2880,4320C2400,4320,1920,4320,1440,4320C960,4320,480,4320,240,4320L0,4320Z"></path>
+        </svg>
+         -->
+    </div>
+</div>
+
+</body>
+

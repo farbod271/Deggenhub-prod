@@ -1,0 +1,43 @@
+{% extends 'Deggenhub/base.html' %}
+
+<head>
+    {% block title %}
+    Create a new Event
+    {% endblock %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+
+
+{% block content %}
+<div class="nav-margin-top">
+
+<div class="box">
+    <form method="post" action="{% url 'create-event' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="{{ form.title.id_for_label }}">Title:</label>
+            <input class="input-box" type="text" name="title" maxlength="100" required="" id="id_title">        </div>
+        <div class="form-group">
+            <label for="{{ form.description.id_for_label }}">Description:</label>
+            <textarea class="input-box" name="description" cols="40" rows="10" required="" id="id_description"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="{{ form.occurance.id_for_label }}">Date:</label>
+            <input placeholder="example: 12.02.24" class="input-box" type="text" name="occurance" required="" id="id_occurance">
+        </div>
+        <div class="form-group">
+            <label for="{{ form.place.id_for_label }}">Place:</label>
+            <input class="input-box" type="text" name="place" value="Deggendorf" class="form-control" maxlength="100" id="id_place">
+        </div>
+        <div class="form-group">
+            <label for="{{ form.image.id_for_label }}">Image:</label>
+            {{ form.image }}    
+        </div>
+
+        <button type="submit" class="btn-submit">Save Event</button>
+    </form>
+</div>
+
+</div>
+{% endblock %}

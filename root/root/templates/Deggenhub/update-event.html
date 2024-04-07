@@ -1,0 +1,52 @@
+{% extends 'Deggenhub/base.html' %}
+
+
+<head>
+    {% block title %}
+    modify your event
+    {% endblock %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <title>Your Profile</title>
+    {% load allauth i18n %}
+</head>
+
+{% block content %}
+<div class="nav-margin-top">
+
+</div>
+    <div class="box">
+        <form  class="changeable" method="post" action="{%url 'update-event' pk=pk %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_title">title</label>
+                <input class="input-box" type="text" name="title" value="{{event.title}}" maxlength="100" required="" id="id_title">
+            </div>
+            <div class="form-group">
+                <label for="id_description">description</label>
+                <textarea class="input-box" type="text" name="description" id="description" value="{{event.description}}"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="id_occurance">When:</label>
+                <input placeholder="example: 12.02.24" class="input-box" type="text" name="occurance" value="{{event.occurance}}" required id="id_occurance">
+            </div>
+            <div class="form-group">
+                <label for="id_image">Image:</label>
+                <input type="file" name="image" class="form-control" accept="image/*" id="id_image">
+
+            </div>
+            <div class="form-group">
+                <label for="id_place">Where:</label>
+                <input class="input-box" type="text" name="place" value="{{event.place}}" class="form-control" maxlength="100" id="id_place">
+            </div>
+
+            <!-- {{form}} -->
+
+
+            <button class="btn" type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+

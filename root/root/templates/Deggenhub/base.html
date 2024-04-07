@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {% block title %}
+        
+        {% endblock %}
+    </title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Poppins Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+    {% endblock %}
+</head>
+
+<body>
+
+    <nav class="custom-navbar">
+        
+            <!-- Brand/logo -->
+            <a class="navbar-brand" href="{% url 'index' %}">
+                Deggenhub
+            </a>
+
+            <label for="check" class="hamburger" style="background-color: #dbba01;">
+                <span class="hamburger-span">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </span>
+            </label>
+            <input class="hamburger-input" type="checkbox" id="check">
+                
+                <!-- Navbar links -->
+                <div class="custom-nav-items" id="">
+                    <ul class="">
+                        <li class="">
+                            <a class="" href="#">Deggentalk!</a>
+                        </li>
+                        <li>
+                            Droms
+                        </li>
+                        <li class="">
+                            <a class="" href="#">Contact</a>
+                        </li >
+                        <li>
+                            <label  class="dropdown">
+
+                                <div class="dd-button">
+                                    Account 
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                                    <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                                    </svg>
+                                </div>
+                        
+                                <input type="checkbox" class="dd-input" id="test">
+                        
+                        <ul class="dd-menu">
+                            {% if user.is_authenticated %}
+                            <li>
+                                <a class="" href="{% url 'profile' %}">Profile</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="{% url 'account_logout' %}">Log out</a>
+                            </li>
+                            {% else %}
+                            <li><a href="{% url 'signup' %}" id="login" >Signup
+                            </a></li>
+                            {% endif %}
+                        </ul>
+                        
+                            </label>
+                </li>
+            </ul>
+            
+            
+        </div>
+        
+    </nav>
+
+    {% block content %}
+
+    {% endblock %}
+
+
+    <footer class="footer">
+        <div class="flex">
+                    <p class="lead">Deggenhub &copy; 2024</p>
+        </div>
+    </footer>
+
+    {% load static %}
+    <script src="{% static '/js/app.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,249 @@
+
+{% extends 'Deggenhub/base.html' %}
+
+
+
+{% block title %}
+Deggenhub
+{% endblock title %}
+
+{% block content %}
+
+
+
+
+
+    <main>
+        <section class="main">
+            <div style="height: 100%;" class="container-fluid">
+                <div style="height: 100%;" class="my_row">
+                    <div class="background text-white">
+                        <h1 style="margin-top: 90px;" class="display-5 ">Welcome to Deggenhub</h1>
+                        <p id="explain" class="lead">A place where <span style="background-color: #dbba01;">Students</span> and <span style=" background-color: rgb(3, 172, 214);">Locals</span> and <span style="background-color: rgb(137, 185, 4);">Businesses</span> <br> can connect</p>
+                        {% load static %}
+                        <!-- <img src="{% static '3guys.png' %}" class="guys"></img> -->
+                    </div>
+                    <div>
+                        <div id="weather" >
+                            <div class="first_section">
+                                <h1>Deggendorf</h1>
+                                <div> {{  weather_updates.weather_description}}, {{weather_updates.date}} </div>
+                            </div>
+                            <div class="middle_section">
+                                <div>
+                                    {{weather_updates.temperature}}
+                                </div>
+                                {% load static %}
+                                <img id="weather-icon"  alt="">
+                            </div>
+                            <div class="end_section">
+                                <div>
+                                    {% load static %}
+                                    <img id="windsock" src="{% static '../../static/svg/windsock.svg' %}" alt="">
+                                    <div style="width: fit-content; ">{{weather_updates.wind_speed}} <span style="font-weight: 100;">km/h</span></div>
+                                </div>
+                                <div>
+                                    <div class="max">
+                                        {{weather_updates.temp_max}} °C
+                                    </div>
+                                    <div class="min">{{weather_updates.temp_min}} °C</div>
+                                </div>
+                                <div>
+                                    {% load static %}
+                                    <img id="humidity" src="{% static '../../static/svg/humidity.svg' %}" alt="">
+                                    <div style="width: fit-content; ">{{weather_updates.humidity}} %</div>
+                                </div>
+                            </div>
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <div class="about">
+            <div class="col-md-4">
+                <h1>Students</h1><p>can exchange goods and services with each other. every student has a skill and you can share it here with others</p>
+            </div>
+            <div class="col-md-4">
+                <h1>
+                    Locals
+                </h1>
+                <p>can find students and exchange cultures or give them arrends to run for them</p> 
+            </div>
+            <div class="col-md-4">
+                <h1>Businesses</h1>
+                <p>can find the Local talents of Deggendorf and hire them</p>
+            </div>
+        </div>
+
+
+
+        <section class="offer-and-demands">
+            <h1 style="padding-top: 30px;" class=" text-center">Events in Deggendorf<i style="scale: 0.2;" class="fa fa-circle text-danger-glow blink"></i></h1>
+            <div class="container-fluid special">
+                {% if user.is_authenticated %}
+                <a href="{% url 'create-event' %}" class="card-body special-card-body"></a>
+                {% else %}
+                <a href="{% url 'account_login' %}" class="card-body special-card-body"></a>
+                {% endif %}
+
+                {% for event in events %}
+                <a class="outer-wrapper card-body" href="{% url 'event-detail' pk=event.pk %}">
+
+                <!-- <div class="card-body"> -->
+                            {% if event.image %}
+                                <img src="{{event.image.url}}" alt="event image">
+                            {% endif %}
+                            <div class="blob" >
+                                {% if event.price %}
+                                    {{event.price}}€
+                                {% else%}
+                                    Free
+                                {% endif %}
+                            </div>
+                            <p class="title">{{ event.title }}</p>
+                            <p class="place">{{event.place}}</p>
+                            <p class="occurance">{{event.occurance}}</p>
+                            <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 640"><path fill="#ffd700" fill-opacity="1" d="M0,256L80,240C160,224,320,192,480,154.7C640,117,800,75,960,58.7C1120,43,1280,53,1360,58.7L1440,64L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path></svg> -->
+                            <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 640">
+                                <path fill="#ffd700" fill-opacity="1" d="M0,256L80,240C160,224,320,192,480,154.7C640,117,800,75,960,58.7C1120,43,1280,53,1360,58.7L1440,64L1440,640L1360,640C1280,640,1120,640,960,640C800,640,640,640,480,640C320,640,160,640,80,640L0,640Z"></path>
+                            </svg> -->
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 960">
+                                <path fill="#ffd700" fill-opacity="1" d="M0,256L80,240C160,224,320,192,480,154.7C640,117,800,75,960,58.7C1120,43,1280,53,1360,58.7L1440,64L1440,960L1360,960C1280,960,1120,960,960,960C800,960,640,960,480,960C320,960,160,960,80,960L0,960Z"></path>
+                            </svg>
+                            
+                <!-- </div> -->
+                </a>
+
+                {% endfor %}
+
+            </div>
+        </section>
+
+        <section class="offer-and-demands">
+            <h1 style="padding-top: 30px;" class=" text-center">Offers and Demands<i style="scale: 0.2;" class="fa fa-circle text-danger-glow blink"></i></h1>
+            
+            <div class=" special">
+                {% if user.is_authenticated %}
+                <a href="{% url 'create-task' %} " class="card-body special-card-body"></a>
+                {% else %}
+                <a href="{% url 'account_login' %} " class="card-body special-card-body"></a>
+                {% endif %}
+                <!-- loop through the tasks and create a card-body for each one -->
+                {% for task in tasks %}
+                <a class="outer-wrapper card-body" href="{% url 'task-detail' pk=task.pk %}">
+                <!-- <div class="card-body"> -->
+                    {% if task.image %}
+                        <img  src="{{task.image.url}}" alt="task image">
+                    {% endif %}
+                    
+                    <div class="blob">
+                        {% if event.price %}
+                        {{event.price}}€
+                    {% else%}
+                        Free
+                    {% endif %}
+                    </div>
+                    <p class="title">{{ task.title }}</p>
+
+                    {% if task.task_type == 1 %}
+                    <p>Product</p>
+                    {% elif task.task_type == 2 %}
+                    <p>service</p>
+                    {% endif %}
+                    <p class="created">created: {{ task.created }}</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 960">
+                        <path fill="#ffd700" fill-opacity="1" d="M0,256L80,240C160,224,320,192,480,154.7C640,117,800,75,960,58.7C1120,43,1280,53,1360,58.7L1440,64L1440,960L1360,960C1280,960,1120,960,960,960C800,960,640,960,480,960C320,960,160,960,80,960L0,960Z"></path>
+                    </svg> 
+                <!-- </div> -->
+                </a>                                
+
+                {% endfor %}
+            </div>
+        </section>
+
+
+
+
+
+    </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {% load static %}
+    <!-- Bootstrap JS -->
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+
+
+    <script src="{% static 'app.js' %}"></script>
+
+    <script>
+        var image = document.getElementById("weather-icon")
+        var icon = "{{weather_updates.icon}}"
+          switch (icon) {
+            case "01d":
+                image.src = "{% static '../../static/svg/clear-day.svg'%}"
+                break;
+            case "01n":
+                image.src = "{% static '../../static/svg/clear-night.svg'%}"
+                break;
+            case "02d":
+                image.src = "{% static '../../static/svg/partly-cloudy-day.svg'%}"
+                break;
+            case "02n":
+                image.src = "{% static '../../static/svg/partly-cloudy-night.svg'%}"
+                break;
+            case "03d": case "03n":
+                image.src = "{% static '../../static/svg/cloudy.svg'%}"
+                break;
+            case "04d":
+                image.src = "{% static '../../static/svg/overcast-day.svg'%}"
+                break;
+            case "04n":
+                image.src = "{% static '../../static/svg/overcast-night.svg'%}"
+                break;
+            case "09d": case "09n":
+                image.src = "{% static '../../static/svg/rain.svg'%}"
+                break;
+            case "10d":
+                image.src = "{% static '../../static/svg/partly-cloudy-day-rain.svg'%}"
+                break;
+            case "10n":
+                image.src = "{% static '../../static/svg/partly-cloudy-night-rain.svg'%}"
+                break;
+            case "11d": case"11n":
+                image.src = "{% static '../../static/svg/thunderstorms.svg'%}"
+                break;
+            case "13d": case"13n":    
+                image.src = "{% static '../../static/svg/snow.svg'%}"
+                break;
+            case "50d": case"50n":
+                image.src = "{% static '../../static/svg/mist.svg'%}"
+                break;
+            default:
+                image.src = "{% static '../../static/svg/clear-day.svg'%}"
+                break;
+          }
+    </script>
+   
+   {% endblock %}

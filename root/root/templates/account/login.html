@@ -1,0 +1,71 @@
+{% extends "Deggenhub/base.html" %}
+
+
+
+
+<head>
+    {% block title %}Log in{% endblock %}
+    {% load allauth account %}
+    {% load allauth i18n %}
+</head>
+
+
+{% block content %}
+
+<div class="center_of_page nav-margin-top">
+    <h1>log in</h1>
+    <p>
+
+    If you have not created an account yet, then please
+    <a href="{{ signup_url }}">sign up</a> first.
+
+    </p>
+
+{% if form.errors %}
+    <p>Your username and password didn't match. Please try again.</p>
+{% endif %}
+
+
+<div class="box" >
+        <form method="post" action="{% url 'account_login' %}">
+            {% csrf_token %}
+    <div class="form-group">
+            <label for="id_login">Username:</label>
+            <input class="input-box" type="text" name="login" placeholder="Username" autocomplete="username" maxlength="150" required="" id="id_login">
+    </div>
+
+    <div class="form-group">
+        <label for="id_password">Password:</label>
+        <input class="input-box" type="password" name="password" placeholder="Password" autocomplete="current-password" required="" aria-describedby="id_password_helptext" id="id_password"> 
+        <!-- <div class="helptext" id="id_password_helptext">
+            <a href="/accounts/password/reset/">Forgot your password?</a>
+            </div> -->
+    </div>
+
+    <div class="forget">
+        <label for="id_remember" class="checkbox-label">
+        <input type="checkbox" name="remember" id="id_remember">
+        <span class="checkbox-custom "></span>
+        <span class="label-text">Remember me</span>
+        </label>
+        <span class="fg">
+        <a href="/accounts/password/reset/"> Forget password?</a>
+        </span>
+      </div>
+
+    <!-- <div class="form-group">
+        <label for="id_remember">Remember Me:</label>
+        <input type="checkbox" name="remember" id="id_remember">  
+    </div> -->
+    <button class="btn" type="submit">Log in</button>
+
+        </form>
+</div>
+
+
+
+
+    {% if SOCIALACCOUNT_ENABLED %}
+        {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
+    {% endif %}
+{% endblock content %}

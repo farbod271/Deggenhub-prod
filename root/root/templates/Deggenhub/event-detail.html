@@ -1,0 +1,41 @@
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body class="signup-body">
+
+
+    <div class="custom-container">
+    
+        <div class="card-body event-detail">
+            {% if event.image %}
+            <img class="task-image-detail" src="{{event.image.url}}" alt="event image">
+            {% endif %}
+            <h1 class="event-title">{{event.title}}</h1>
+    
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 480">
+                <path fill="#ffd700" fill-opacity="1" d="M0,256L80,240C160,224,320,192,480,154.7C640,117,800,75,960,58.7C1120,43,1280,53,1360,58.7L1440,64L1440,960L1360,960C1280,960,1120,960,960,960C800,960,640,960,480,960C320,960,160,960,80,960L0,960Z"></path>
+            </svg>
+    
+            <!-- <div class="yellow-back">
+    
+            </div> -->
+    
+            <div class="custom-container2">
+                
+                <div class="details">
+                    <p>{{event.owner}}</p>
+                    <p>{{event.occurance}}</p>
+                    <p>{{event.place}}</p>
+                    <P>{{event.price}}</P>
+                    <p>{{event.created}}</p>
+                </div>
+            </div> 
+            <p class="description">{{event.description}}</p>
+            
+        </div>
+    </div>
+</body>
+
+
+
