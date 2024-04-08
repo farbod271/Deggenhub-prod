@@ -1,4 +1,3 @@
-
 # define an alias for the specific python version used in this file.
 FROM docker.io/python:3.12.2-slim-bookworm as python
 

@@ -198,7 +198,7 @@ main {
 }
 
 .background {
-    background: linear-gradient(90deg, rgba(0,0,0,0.5075280112044818) 0%, rgba(16, 16, 16, 0.332) 100%), url(static/images/deggendorf.jpg);
+    background: linear-gradient(90deg, rgba(0,0,0,0.5075280112044818) 0%, rgba(16, 16, 16, 0.332) 100%), url(../../static/images/deggendorf.jpg);
     border-radius: 8px;
     width: calc(100% - 320px);
     /* box-shadow: 11.41px 11.41px 16px #DAE2E8, -11.41px -11.41px 16px #FFFFFF; */
@@ -368,7 +368,7 @@ main {
     display: flex;
     /* align-items: center; */
     font-size: 1.2rem;
-    background-image: url('static/about.svg');
+    background-image: url('../../static/about.svg');
     color:#ecf0f3;
     /* flex-wrap: wrap; */
 
