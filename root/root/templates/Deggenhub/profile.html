@@ -26,7 +26,9 @@
           
         <div class="form-group">
             <label for="id_profile_picture"></label>
+            {% if user.profile_picture %}
             <img class="profile-picture" src="{{user.profile_picture.url}}" alt="">
+            {% endif %}
             <input type="file" name="profile_picture" id="profile_picture" accept="image/*" id="profile_picture">
         </div>
 
