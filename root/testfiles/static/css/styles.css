@@ -198,7 +198,7 @@ main {
 }
 
 .background {
-    background: linear-gradient(90deg, rgba(0,0,0,0.5075280112044818) 0%, rgba(16, 16, 16, 0.332) 100%);
+    background: linear-gradient(90deg, rgba(0,0,0,0.5075280112044818) 0%, rgba(16, 16, 16, 0.332) 100%), url(deggendorf.jpg);
     border-radius: 8px;
     width: calc(100% - 320px);
     /* box-shadow: 11.41px 11.41px 16px #DAE2E8, -11.41px -11.41px 16px #FFFFFF; */
