@@ -8,7 +8,7 @@ import environ
 #default base dir in django
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 # root/
-APPS_DIR = str(BASE_DIR / "root")
+APPS_DIR = BASE_DIR / "root"
 env = environ.Env()
 
 READ_DOT_ENV_FILE = env.bool("DJANGO_READ_DOT_ENV_FILE", default=False)
