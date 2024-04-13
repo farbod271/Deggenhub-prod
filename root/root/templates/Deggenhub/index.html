@@ -38,7 +38,7 @@ Deggenhub
                             <div class="end_section">
                                 <div>
                                     {% load static %}
-                                    <img id="windsock" src="{% static '../../static/svg/windsock.svg' %}" alt="">
+                                    <img id="windsock" src="{% static 'svg/windsock.svg' %}" alt="">
                                     <div style="width: fit-content; ">{{weather_updates.wind_speed}} <span style="font-weight: 100;">km/h</span></div>
                                 </div>
                                 <div>
@@ -49,7 +49,7 @@ Deggenhub
                                 </div>
                                 <div>
                                     {% load static %}
-                                    <img id="humidity" src="{% static '../../static/svg/humidity.svg' %}" alt="">
+                                    <img id="humidity" src="{% static 'svg/humidity.svg' %}" alt="">
                                     <div style="width: fit-content; ">{{weather_updates.humidity}} %</div>
                                 </div>
                             </div>
@@ -201,46 +201,46 @@ Deggenhub
         var icon = "{{weather_updates.icon}}"
           switch (icon) {
             case "01d":
-                image.src = "{% static '../../static/svg/clear-day.svg'%}"
+                image.src = "{% static 'svg/clear-day.svg'%}"
                 break;
             case "01n":
-                image.src = "{% static '../../static/svg/clear-night.svg'%}"
+                image.src = "{% static 'svg/clear-night.svg'%}"
                 break;
             case "02d":
-                image.src = "{% static '../../static/svg/partly-cloudy-day.svg'%}"
+                image.src = "{% static 'svg/partly-cloudy-day.svg'%}"
                 break;
             case "02n":
-                image.src = "{% static '../../static/svg/partly-cloudy-night.svg'%}"
+                image.src = "{% static 'svg/partly-cloudy-night.svg'%}"
                 break;
             case "03d": case "03n":
-                image.src = "{% static '../../static/svg/cloudy.svg'%}"
+                image.src = "{% static 'svg/cloudy.svg'%}"
                 break;
             case "04d":
-                image.src = "{% static '../../static/svg/overcast-day.svg'%}"
+                image.src = "{% static 'svg/overcast-day.svg'%}"
                 break;
             case "04n":
-                image.src = "{% static '../../static/svg/overcast-night.svg'%}"
+                image.src = "{% static 'svg/overcast-night.svg'%}"
                 break;
             case "09d": case "09n":
-                image.src = "{% static '../../static/svg/rain.svg'%}"
+                image.src = "{% static 'svg/rain.svg'%}"
                 break;
             case "10d":
-                image.src = "{% static '../../static/svg/partly-cloudy-day-rain.svg'%}"
+                image.src = "{% static 'svg/partly-cloudy-day-rain.svg'%}"
                 break;
             case "10n":
-                image.src = "{% static '../../static/svg/partly-cloudy-night-rain.svg'%}"
+                image.src = "{% static 'svg/partly-cloudy-night-rain.svg'%}"
                 break;
             case "11d": case"11n":
-                image.src = "{% static '../../static/svg/thunderstorms.svg'%}"
+                image.src = "{% static 'svg/thunderstorms.svg'%}"
                 break;
             case "13d": case"13n":    
-                image.src = "{% static '../../static/svg/snow.svg'%}"
+                image.src = "{% static 'svg/snow.svg'%}"
                 break;
             case "50d": case"50n":
-                image.src = "{% static '../../static/svg/mist.svg'%}"
+                image.src = "{% static 'svg/mist.svg'%}"
                 break;
             default:
-                image.src = "{% static '../../static/svg/clear-day.svg'%}"
+                image.src = "{% static 'svg/clear-day.svg'%}"
                 break;
           }
     </script>
