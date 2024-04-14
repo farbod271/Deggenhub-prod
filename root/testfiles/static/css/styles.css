@@ -188,6 +188,9 @@ main {
 
 .main {
     height: 320px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 
 
 }
@@ -1545,6 +1548,10 @@ footer p {
 
     .background {
         width: 100%;
+    }
+
+    .my_row {
+        gap: 0px;
     }
 
     .about {
