@@ -1,9 +1,14 @@
+{% extends 'Deggenhub/base.html' %}
+
 <head>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    {% block title %}
+    Event detail
+    {% endblock %}
 </head>
+{% block content %}
 <body class="signup-body">
 
+<div class="nav-margin-top">
 
     <div class="custom-container">
     
@@ -17,9 +22,9 @@
                 <path fill="#ffd700" fill-opacity="1" d="M0,256L80,240C160,224,320,192,480,154.7C640,117,800,75,960,58.7C1120,43,1280,53,1360,58.7L1440,64L1440,960L1360,960C1280,960,1120,960,960,960C800,960,640,960,480,960C320,960,160,960,80,960L0,960Z"></path>
             </svg>
     
-            <!-- <div class="yellow-back">
+            <div class="yellow-back">
     
-            </div> -->
+            </div>
     
             <div class="custom-container2">
                 
@@ -35,7 +40,8 @@
             
         </div>
     </div>
+</div>
 </body>
-
+{% endblock %}
 
 

@@ -13,7 +13,8 @@ def get_weather():
         complete_url = f"{base_url}lat={lat}&lon={lon}&appid={api_key}&units=metric"
         
         response = requests.get(complete_url)
-        if response.status_code == 200:
+        try:
+            if response.status_code == 200:
 
 
                 weather_data = response.json()   
@@ -37,9 +38,18 @@ def get_weather():
                 'humidity': humidity
                 }
 
-                return context
                 
-        else:
-                return context
+        except:
+                context = {
+                'temperature': 'N/A',
+                'weather_description': 'N/A',
+                'temp_min': 'N/A',
+                'temp_max': 'N/A',
+                'icon': 'N/A',
+                'date': 'N/A',
+                'wind_speed': 'N/A',
+                'humidity': 'N/A'
+                }
+        return context
 
 get_weather()

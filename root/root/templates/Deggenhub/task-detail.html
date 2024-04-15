@@ -1,13 +1,17 @@
 
+{% extends 'Deggenhub/base.html' %}
+
 <head>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    {% block title %}
+    Offers and Demands Detail
+    {% endblock %}
 </head>
 
 
-
+{% block content %}
 <body class="signup-body">
 
+<div class="nav-margin-top">
 
 <div class="custom-container">
     
@@ -57,6 +61,6 @@
          -->
     </div>
 </div>
-
+</div>
 </body>
-
+{% endblock %}

@@ -35,7 +35,14 @@
             <a class="navbar-brand" href="{% url 'index' %}">
                 Deggenhub
             </a>
+            <div class="little_weather">
+                <div class="temp">
+                    {{weather_updates.temperature}} °<span style="font-size:small;">c</span>
 
+                </div>
+                {% load static %}
+                <img class="weather-icon"  alt="">
+            </div>
             <label for="check" class="hamburger" style="background-color: #dbba01;">
                 <span class="hamburger-span">
                     <div class="line"></div>

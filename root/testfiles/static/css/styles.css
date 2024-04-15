@@ -251,7 +251,7 @@ main {
 
 }
 
-#weather-icon{
+.middle_section .weather-icon{
     height: 200px;
     width: 200px;
     margin-left: auto;
@@ -677,6 +677,7 @@ main {
     border-radius: 0 0 30px 30px;
     margin: 0;
     word-wrap: break-word;
+    min-height: 100px;
 }
 
 
@@ -1232,6 +1233,9 @@ footer p {
         border-bottom: 1px solid #cccccc;
       }
 
+       .little_weather .little_weather img, .little_weather .temp {
+        display: none;
+      } 
 
       @media (max-width: 630px) {
         .custom-nav-items {
@@ -1249,7 +1253,30 @@ footer p {
           }
 
 
+          .little_weather {
+            display: block;
+            width: 50px;
+            height: 50px;
+            position: relative;
+            background-color: #5e5e5e4d;
+            border-radius: 17px;
+        }
+    
+        .little_weather img {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: -13px;
+            left: -7px;
+        }
 
+        .little_weather .temp {
+            display: block;
+            position: absolute;
+            bottom: 0;
+            right: -9px;
+            font-size: medium;
+        }
         
 
         .custom-nav-items ul {
@@ -1533,6 +1560,7 @@ footer p {
     .custom-column h1 {
         text-align: center;
     }
+
 
 
 

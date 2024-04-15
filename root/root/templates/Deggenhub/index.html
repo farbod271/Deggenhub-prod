@@ -33,7 +33,7 @@ Deggenhub
                                     {{weather_updates.temperature}}
                                 </div>
                                 {% load static %}
-                                <img id="weather-icon"  alt="">
+                                <img class="weather-icon"  alt="">
                             </div>
                             <div class="end_section">
                                 <div>
@@ -197,8 +197,11 @@ Deggenhub
     <script src="{% static 'js/app.js' %}"></script>
 
     <script>
-        var image = document.getElementById("weather-icon")
+        var images = document.querySelectorAll(".weather-icon")
         var icon = "{{weather_updates.icon}}"
+        images.forEach(image => {
+            
+
           switch (icon) {
             case "01d":
                 image.src = "{% static 'svg/clear-day.svg'%}"
@@ -243,6 +246,7 @@ Deggenhub
                 image.src = "{% static 'svg/clear-day.svg'%}"
                 break;
           }
+        });
     </script>
    
    {% endblock %}
