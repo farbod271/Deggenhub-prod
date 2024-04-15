@@ -2,7 +2,6 @@ var login = document.querySelector(".dd-button")
 var navbar = document.querySelector(".custom-navbar")
 var dropdown = document.querySelector('.dropdown')
 ddinput = document.querySelector('.dd-input')
-hamburger_input = document.querySelector('.hamburger-input')
 ddmenu = document.querySelector('.dd-menu')
 ddinput = document.querySelector('.dd-input')
 var task_type = document.getElementById('id_task_type')
@@ -97,10 +96,6 @@ if (inputs.length) {
     }
   });
 
-  document.addEventListener('click', (e) => {
-    if (!e.target.closest('.hamburger'))  {
-      hamburger_input.checked = false;
-    }
-  });
+
   
 
