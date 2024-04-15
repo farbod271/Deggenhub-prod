@@ -1,0 +1,70 @@
+<nav class="custom-navbar">
+        
+    <!-- Brand/logo -->
+    <a class="navbar-brand" href="{% url 'index' %}">
+        Deggenhub
+    </a>
+    <div class="little_weather">
+        <div class="temp">
+            {{weather_updates.temperature}} °<span style="font-size:small;">c</span>
+
+        </div>
+        {% load static %}
+        <img class="weather-icon"  alt="">
+    </div>
+    <label for="check" class="hamburger" style="background-color: #dbba01;">
+        <span class="hamburger-span">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </span>
+    </label>
+    <input class="hamburger-input" type="checkbox" id="check">
+        
+        <!-- Navbar links -->
+        <div class="custom-nav-items" id="">
+            <ul class="">
+                <li class="">
+                    <a class="" href="#">Deggentalk!</a>
+                </li>
+                <li>
+                    Droms
+                </li>
+                <li class="">
+                    <a class="" href="#">Contact</a>
+                </li >
+                <li>
+                    <label  class="dropdown">
+
+                        <div class="dd-button">
+                            Account 
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                            <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                            </svg>
+                        </div>
+                
+                        <input type="checkbox" class="dd-input" id="test">
+                
+                <ul class="dd-menu">
+                    {% if user.is_authenticated %}
+                    <li>
+                        <a class="" href="{% url 'profile' %}">Profile</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="{% url 'account_logout' %}">Log out</a>
+                    </li>
+                    {% else %}
+                    <li><a href="{% url 'signup' %}" id="login" >Signup
+                    </a></li>
+                    {% endif %}
+                </ul>
+                
+                    </label>
+        </li>
+    </ul>
+    
+    
+</div>
+
+</nav>
