@@ -7,11 +7,14 @@
 Deggenhub
 {% endblock title %}
 
-{% block content %}
 
 {% block navbar %}
 {% include 'Deggenhub/navbar.html' %}
 {% endblock navbar %}
+
+{% block content %}
+
+
 
 
 
@@ -154,10 +157,10 @@ Deggenhub
                     </div>
                     <p class="title">{{ task.title }}</p>
 
-                    {% if task.task_type == 1 %}
-                    <p class="type">Product</p>
-                    {% elif task.task_type == 2 %}
-                    <p class="type">service</p>
+                    {% if task.task_eco == 1 %}
+                    <p class="type">Offering</p>
+                    {% elif task.task_eco == 2 %}
+                    <p class="type">Demanding</p>
                     {% endif %}
                     <p class="created">created: {{ task.created }}</p>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 960">
